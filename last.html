@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serak Eih — Romantic Experience | Elyas El Sitta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Calm & Soft Romantic Palette */
+            --bg-color: #0f0b12;
+            --bg-gradient: radial-gradient(circle at 50% 30%, #201322 0%, #0d0811 100%);
+            --card-bg: rgba(28, 20, 32, 0.65);
+            --card-border: rgba(212, 165, 116, 0.25);
+            --accent-gold: #e2be8a;
+            --accent-rose: #d8839a;
+            --accent-glow: rgba(216, 131, 154, 0.25);
+            --text-main: #f5eff6;
+            --text-muted: #bda8be;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Amiri', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            background-image: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Ambient Glowing Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%;
+            left: 20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(216, 131, 154, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(60px);
+            animation: pulseGlow 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9) translate(0, 0); opacity: 0.7; }
+            100% { transform: scale(1.15) translate(-20px, 30px); opacity: 1; }
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            margin: 70px 0 40px;
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', 'Aref Ruqaa', serif;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        p.subtitle {
+            color: var(--accent-rose);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* Content Container */
+        .content-block {
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        /* Global Section Title */
+        .section-title {
+            font-family: 'Aref Ruqaa', 'Playfair Display', serif;
+            color: var(--accent-gold);
+            text-align: center;
+            font-size: 2.2rem;
+            position: relative;
+            margin-bottom: 35px;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '♥';
+            display: block;
+            color: var(--accent-rose);
+            font-size: 1rem;
+            margin-top: 5px;
+            opacity: 0.8;
+        }
+
+        /* Music Player Section */
+        .player-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 15px rgba(216, 131, 154, 0.05);
+            text-align: center;
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s ease;
+        }
+
+        .player-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(216, 131, 154, 0.4);
+        }
+
+        .record-art {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80') center/cover;
+            border: 3px solid var(--accent-gold);
+            margin-bottom: 25px;
+            box-shadow: 0 0 30px var(--accent-glow);
+            animation: rotateRecord 14s linear infinite;
+            animation-play-state: paused;
+        }
+
+        @keyframes rotateRecord {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .song-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .artist-name {
+            color: var(--accent-rose);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .btn-play {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #c49964 100%);
+            color: #120a14;
+            border: none;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(226, 190, 138, 0.3);
+        }
+
+        .btn-play:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px var(--accent-gold);
+        }
+
+        /* Media Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .media-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            height: 270px;
+        }
+
+        .media-card img, .media-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .media-card:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Expanded Poetry Grid */
+        .poetry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
+
+        .quote-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            transition: all 0.35 ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(216, 131, 154, 0.5);
+            box-shadow: 0 15px 35px rgba(216, 131, 154, 0.15);
+        }
+
+        .arabic-quote {
+            font-family: 'Amiri', serif;
+            text-align: right;
+            direction: rtl;
+            font-size: 1.25rem;
+            line-height: 1.9;
+            color: var(--text-main);
+        }
+
+        .english-quote {
+            text-align: left;
+            direction: ltr;
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .poetic-line {
+            font-family: 'Aref Ruqaa', 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin: 10px 0;
+            font-style: normal;
+        }
+
+        .highlight {
+            color: var(--accent-rose);
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.6rem; }
+            .player-card { padding: 30px 20px; }
+            .poetry-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Serak Eih</h1>
+        <p class="subtitle">SANDOURA</p>
+    </header>
+
+    <div class="content-block">
+
+        <div class="player-card">
+            <div class="record-art" id="record"></div>
+            <div class="song-title">MY WORLD</div>
+            <div class="artist-name">❤️❤️❤️</div>
+
+            <audio id="audioPlayer" preload="auto">
+                <source src="ran.mpeg" type="audio/mp3">
+                <source src="ran.mpeg" type="audio/mp3">
+                متصفحك لا يدعم تشغيل الصوت.
+            </audio>
+
+            <button class="btn-play" id="playBtn" title="تشغيل / إيقاف">
+                <i class="fa-solid fa-play" id="playIcon"></i>
+            </button>
+        </div>
+
+        <div style="width: 100%;">
+            <h2 class="section-title">Visual Moments</h2>
+            <div class="media-grid">
+                
+                <div class="media-card">
+                    <video id="bgVideo1" loop muted playsinline autoplay>
+                        <source src="run.MP4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="media-card">
+                    <video id="bgVideo2" loop muted playsinline autoplay>
+                        <source src="play.mov" type="video/quicktime">
+                        <source src="play.mov" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="media-card"><img src="photo1.png" alt="Moment"></div>
+                <div class="media-card"><img src="photo2.png" alt="Moment"></div>
+                <div class="media-card"><img src="photo3.JPG" alt="Moment"></div>
+                <div class="media-card"><img src="photo4.JPG" alt="Moment"></div>
+                <div class="media-card"><img src="photo6.JPG" alt="Moment"></div>
+                <div class="media-card"><img src="photo7.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo9.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo11.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo27.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo29.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo30.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo31.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo37.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo38.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo39.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo43.JPG" alt="Moment"></div>
+                <div class="media-card"><img src="photo49.jpg" alt="Moment"></div>
+                <div class="media-card"><img src="photo50.jpg" alt="Moment"></div>
+
+            </div>
+        </div>
+
+        <div style="width: 100%;">
+            <h2 class="section-title">Poetic Echoes & Love Verses</h2>
+            <div class="poetry-grid">
+
+                <div class="quote-card">
+                    <div class="english-quote">
+                        You're the first person on my mind when I wake up and the last one I think about before I sleep. I tell you my secrets, my fears, my small wins, everything.
+                        <p class="poetic-line">You're my comfort, my safe place, my strength.</p>
+                        I feel lucky every single day to have you.. ❤️
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="english-quote">
+                        In English, we say: "Happy Birthday."<br>
+                        <p class="poetic-line">But in poetry, we say:</p>
+                        Today the world feels gentler because you arrived in it. May this new year hold you softly, return your kindness to you in quiet ways, and remind you—again and again—that your existence is a gift time itself celebrates.
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        ما أحب العلاقات <span class="highlight">وحبيتك</span><br>
+                        ما أحب أتعلق <span class="highlight">وتعلقت فيك</span><br>
+                        ما أحب أبادر وبادرت لك<br>
+                        ما أحب الفرص وأعطيتك كل الفرص<br>
+                        <p class="poetic-line">ما أحب أثق بالناس ووثقت فيك</p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        تَفَاءَلْتُ بِالْخَيْرِ.. <br>
+                        <p class="poetic-line"><span class="highlight">فَعَرَفْتُكِ.</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        هِيَ مَلَاكٌ، <br>
+                        <p class="poetic-line"><span class="highlight">وَلَكِنَّ عُيُونَهَا هَلَاكٌ.</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        وَلِي عُيُونٌ لَا تَرَى سِوَاهَا .. وَلِي حَيَاةٌ كُلُّهَا فِدَاهَا<br>
+                        إِذَا مَشَت صَارَ الزَّمَانُ عِطراً .. وَارْتَاحَ قَلْبِي حِينَ رَأَى بَهَاهَا
+                        <p class="poetic-line">جَمِيلَةٌ.. كَأَنَّهَا مَلَاكٌ ، يَزِيدُ حُبِّي كُلَّمَا أَلْقَاهَا</p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        وَإِنِّي أَغَارُ مِنْ ذَاك الَّذِي يَرَاك.. بَيْنَمَا عَيْنِي مِنْك تُحْرَمُ<br>
+                        تَنَالُ أَعْيُنُهُمْ مِنْك نَصِيبَهَا .. وَنَصِيبِي مِنْك عَلَى سِوَايَ مُقَسَّمُ
+                        <p class="poetic-line"><span class="highlight">فَلَيْسَ سِوَايَ بِك مُتَيَّمُ</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        <p class="poetic-line">وبالغزل الأردني:</p>
+                        لو دفشوني دفش وربطوني بالجحش .. عن حبك بتزحزحش ❤️
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        <p class="poetic-line">وسركِ في قلبي نهرٌ من نور،</p>
+                        لا الأيام تُطفئه ولا الصمت يمحوه.
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="english-quote">
+                        I looked at you and saw the rest of my life in your eyes.
+                        <p class="poetic-line">You are the melody I never knew I was waiting to hear.</p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        بعض الأرواح تأتي كأنها <span class="highlight">اعتذار من الحياة</span> عن كل ما مضى.
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="english-quote">
+                        "In a world full of noise, <span class="highlight">your voice is my favorite quiet place."</span>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        يقول نزار قباني:<br>
+                        <p class="poetic-line"><span class="highlight">"لو كَانَ لِي أن أكونَ شيئاً لَك..."</span></p>
+                        لكنتُ ضَمَادَةً لِجِرَاحِك، أوْ شَمْسَاً تُدْفِئُ لَيَالِيكَ البَارِدَة.
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        وَمَا كُنْتُ مِمَّنْ يَدْخُلُ الْعِشْقُ قَلْبَهُ.. <br>
+                        <p class="poetic-line"><span class="highlight">وَكِنَّ مَنْ يُبْصِرْ جُفُونَكِ يَعْشَقِ.</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        يقول فاروق جويدة:<br>
+                        "وَتَسَأَلِينِي: مَا الحُبُّ؟ <br>
+                        <p class="poetic-line"><span class="highlight">الحُبُّ أَنْ أَكُونَ لَكِ وَأَنْ تَكُونِي لِي.</span></p>
+                        وَأَنْ لاَ أَرَى فِي العَالَمِ سِوَاكِ."
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        محمود درويش:<br>
+                        "وَأَنْتَ تُفَكِّرُ بِالآخَرِينَ البَعِيدِينَ .. <br>
+                        <p class="poetic-line"><span class="highlight">فَكِّرْ بِنَفْسِكَ ، قُلْ: لَيْتَنِي شَمْعَةٌ فِي الظَّلَامِ."</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        <p class="poetic-line">وبالغزل المصري الدافئ:</p>
+                        "أنا مش بس بحبك.. أنا بلاقي نفسي في وجودك، وضحكتك بتنوّر أطراف يومي."
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        يَقُولُونَ أنَّ العِشْقَ يُعْمِي عَنِ العُيُوبِ.. <br>
+                        <p class="poetic-line"><span class="highlight">وَأَنَا أَرَى عُيُوبَكِ كُلَّهَا جَمَالاً!</span></p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="english-quote">
+                        "I love you not only for what you are, but for what I am when I am with you."
+                        <p class="poetic-line">You make my heart feel like home.</p>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        فَلَيْتَكَ تَحْلُو وَالْحَيَاةُ مَرِيرَةٌ .. <br>
+                        <p class="poetic-line"><span class="highlight">وَلَيْتَكَ تَرْضَى وَالأَنَامُ غِضَابُ</span></p>
+                        وَلَيْتَ الَّذِي بَيْنِي وَبَيْنَكَ عَامِرٌ .. وَبَيْنِي وَبَيْنَ العَالَمِينَ خَرَابُ.
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <div class="arabic-quote">
+                        وَإِذَا صَمَتْنَا فَالْعُيُونُ تَنَاطَقَتْ .. <br>
+                        <p class="poetic-line"><span class="highlight">إِنَّ الْعُيُونَ لَهَا كَلاَمٌ آخَرُ.</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Interactive Audio & Playback Script
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const record = document.getElementById('record');
+
+        // Robust Play/Pause Handler
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                    record.style.animationPlayState = 'running';
+                }).catch(error => {
+                    console.log("Audio play error:", error);
+                    alert("تعذر تشغيل الصوت تلقائياً. يرجى التأكد من وجود ملف serak.mp3 في نفس المجلد.");
+                });
+            } else {
+                audio.pause();
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                record.style.animationPlayState = 'paused';
+            }
+        });
+
+        // Reset record button when music ends
+        audio.addEventListener('ended', () => {
+            playIcon.classList.remove('fa-pause');
+            playIcon.classList.add('fa-play');
+            record.style.animationPlayState = 'paused';
+        });
+    </script>
+</body>
+</html>
