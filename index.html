@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="./love.png">
-   <link rel="apple-touch-icon" href="./love.png"> 
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Counting Down To You</title>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="./love.png">
+    <link rel="apple-touch-icon" href="./love.png"> 
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Counting Down To You</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -199,27 +199,6 @@ body{
 .verse{font-size:clamp(.82rem,1.6vw,.95rem);font-style:italic;color:rgba(216,192,196,.55);line-height:1.85;margin-bottom:12px}
 .verse em{color:rgba(212,175,55,.5);font-style:normal}
 
-/* ── DEMO BUTTON ── */
-.demo-btn{
-  background:transparent;
-  color:var(--gl);
-  border:1px solid rgba(212,175,55,.4);
-  padding:8px 18px;
-  font-family:'Cinzel',serif;
-  font-size:.55rem;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  cursor:pointer;
-  transition:all .3s ease;
-  margin-bottom:4px;
-}
-.demo-btn:hover{
-  background:rgba(212,175,55,.12);
-  border-color:var(--gl);
-  box-shadow:0 0 12px rgba(212,175,55,.3);
-  color:#fff;
-}
-
 /* ── BOTTOM ROW ── */
 .bottom-row{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:16px}
 .bottom-row .bl{flex:1;max-width:44px;height:1px}
@@ -320,9 +299,6 @@ body{
 
     <p class="verse">Every second that passes<br/>is one heartbeat closer to <em>you.</em></p>
 
-    <!-- Demo Button -->
-    <button class="demo-btn" id="demo-btn" onclick="triggerDemo()">Preview Reveal (Demo)</button>
-
     <div class="bottom-row">
       <div class="bl l"></div>
       <span class="bs g">✦</span>
@@ -367,14 +343,6 @@ const countdown = setInterval(()=>{
   }
 },1000);
 
-function triggerDemo() {
-  if (!fired) {
-    fired = true;
-    clearInterval(countdown);
-    celebrate();
-  }
-}
-
 function celebrate(){
   document.getElementById('timer').style.display='none';
   document.getElementById('sub-title').style.display='none';
@@ -382,8 +350,6 @@ function celebrate(){
   document.querySelector('.verse').style.display='none';
   document.querySelector('.bottom-row').style.display='none';
   document.querySelector('.fancy-div').style.display='none';
-  const demoBtn = document.getElementById('demo-btn');
-  if (demoBtn) demoBtn.style.display='none';
   document.getElementById('message').style.display='block';
 
   const colors=['#C41E3A','#8B0000','#D4AF37','#F5E6E8','#B8960C','#F5C0C0'];
